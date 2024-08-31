@@ -22,7 +22,7 @@ const sequelize = new Sequelize(db.external_url, {
 
  const connectDB = async () => {
   try {
-    await sequelize.authenticate();
+    await sequelize.sync({force: false});
     console.log("Conectado a la base de datos");
   } catch (error) {
     console.error("Error al conectar a la base de datos:", error);
